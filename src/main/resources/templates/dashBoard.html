@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      th:replace="layout :: layout(~{::title}, ~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+<section>
+    <br><br><br><br>
+    <br><br><br><br>
+
+    <h3>Add New Video</h3>
+
+    <form action="#"  method="post" ">
+        <input type="hidden" "/>
+
+
+        <div class="mb-3">
+            <label for="mark" class="form-label">Title</label>
+            <input type="text" class="form-control" id="mark"
+                   aria-describedby="emailHelp">
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description"
+                   aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="link" class="form-label">URL</label>
+            <input type="text"  class="form-control" id="link"
+                   aria-describedby="emailHelp">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</section>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      th:replace="layout :: layout(~{::title}, ~{::section})" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>RokomariTube</title>
+</head>
+<body>
+<section>
+
+    <br><br><br>
+    <br><br><br>
+    <main class="container">
+
+        <div id="Principles" style=" margin-top: 5px;">
+            <div>
+                <a href="https://www.youtube.com/watch?v=y2RfHUgZdIU">Video link</a>
+                <br>view count<br>
+                like count<br>
+                dislike count<br>
+                <a button type="button" class="btn btn-success btn-sm" href="/detail">detail</a>
+            </div>
+        </div>
+
+    </main>
+</section>
+
+</body>
+
+</html>

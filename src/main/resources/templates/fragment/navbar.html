@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Navbar</title>
+</head>
+<body>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light  fixed-top" style="background-color: #fdfcfc;box-shadow: 0px 4px 4px #020000; " th:fragment="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/" style="font-family: Product Sans, Arial; color: #070000;">RokomariTube</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/" style="color: #050000">Home</a>
+                    </li>
+
+
+
+                    <li class="nav-item">
+                        <a sec:authorize="isAuthenticated()" class="nav-link" style="color: #050000" href="/dashboard"> Dashboard </i></a>
+                    </li>
+
+                    <li class="nav-item" sec:authorize="isAnonymous()">
+                        <a class="nav-link" style="color: #050000" href="/register">Register as User</a>
+                    </li>
+
+
+                    <div>
+                    <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
+                        <a class="nav-link" style="color: #030000" href="/admins"> ADMIN Panel</a>
+                    </li>
+                    </div>
+
+
+                </ul>
+
+
+                <div class="dropdown">
+                    <div class="d-flex align-items-center">
+                        <div sec:authorize="isAuthenticated()">
+                            Logged in as <strong sec:authentication="name"></strong><br>
+                            Role: <span sec:authentication="principal.authorities"></span>
+                            <form th:action="@{/logout}" method="post">
+                                <button><input type="submit" value="Sign Out"/></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="dropdown text-white">
+                    <div class="d-flex align-items-center text-white">
+                        <div sec:authorize="isAnonymous()">
+                            <a th:href="@{/login}">Login</a><br>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+</nav>
+
+
+</body>
+</html>
